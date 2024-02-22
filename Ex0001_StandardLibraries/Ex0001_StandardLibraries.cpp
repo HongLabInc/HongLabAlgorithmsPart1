@@ -40,6 +40,11 @@ int main()
 			cout << c;
 		cout << endl;
 
+		// 자료형 추론(type inference)
+		// auto i = 123; // 명확한 자료형 대신에 auto를 사용하면 등호 오른쪽을 보고 자료형을 추론해서 결정해줍니다.
+		// auto i = my_string.begin(); // 여기서 i는 이터레이터(std::string::iterator) 자료형입니다. 
+		// std::string::iterator를 매번 타이핑하는 것은 번거롭고 가독성도 떨어지는데 auto를 사용하면 간결해집니다.
+
 		// iterator 사용법 (내부적으로는 파이썬 추월코스에 나오는 이터레이터와 같은 원리입니다.)
 		for (auto i = my_string.begin(); i != my_string.end(); i++)
 		{
@@ -47,10 +52,6 @@ int main()
 			cout << c;
 		}
 		cout << endl;
-
-		// 자료형 추론(type inference)
-		// auto i = 123; // 명확한 자료형 대신에 auto를 사용하면 등호 오른쪽을 보고 자료형을 추론해서 결정해줍니다.
-		// auto i = my_string.begin(); // 여기서 i는 이터레이터 자료형입니다. std::string::iterator
 	}
 
 	// 문자열의 일부(substring)만 가져오고 싶을 때 substr()

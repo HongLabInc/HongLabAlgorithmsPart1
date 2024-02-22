@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0104_Karatsuba", "Ex0104_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0001_StandardLibraries", "Ex0001_StandardLibraries\Ex0001_StandardLibraries.vcxproj", "{A8F4752C-A561-4504-8464-AF8D851D9402}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0002_WarmingUp", "Ex0002_WarmingUp\Ex0002_WarmingUp.vcxproj", "{51554B5E-2D65-4BF9-80A9-7BDFFDBEA6A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{A8F4752C-A561-4504-8464-AF8D851D9402}.Release|x64.Build.0 = Release|x64
 		{A8F4752C-A561-4504-8464-AF8D851D9402}.Release|x86.ActiveCfg = Release|Win32
 		{A8F4752C-A561-4504-8464-AF8D851D9402}.Release|x86.Build.0 = Release|Win32
+		{51554B5E-2D65-4BF9-80A9-7BDFFDBEA6A4}.Debug|x64.ActiveCfg = Debug|x64
+		{51554B5E-2D65-4BF9-80A9-7BDFFDBEA6A4}.Debug|x64.Build.0 = Debug|x64
+		{51554B5E-2D65-4BF9-80A9-7BDFFDBEA6A4}.Debug|x86.ActiveCfg = Debug|Win32
+		{51554B5E-2D65-4BF9-80A9-7BDFFDBEA6A4}.Debug|x86.Build.0 = Debug|Win32
+		{51554B5E-2D65-4BF9-80A9-7BDFFDBEA6A4}.Release|x64.ActiveCfg = Release|x64
+		{51554B5E-2D65-4BF9-80A9-7BDFFDBEA6A4}.Release|x64.Build.0 = Release|x64
+		{51554B5E-2D65-4BF9-80A9-7BDFFDBEA6A4}.Release|x86.ActiveCfg = Release|Win32
+		{51554B5E-2D65-4BF9-80A9-7BDFFDBEA6A4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
