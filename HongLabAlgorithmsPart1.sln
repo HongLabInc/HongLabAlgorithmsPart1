@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0401_CountOccurrences", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0402_PartialSelectionSort", "Ex0402_PartialSelectionSort\Ex0402_PartialSelectionSort.vcxproj", "{E33E5A84-F396-4316-B774-31F41B3BF38C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0403_MinAndMax", "Ex0403_MinAndMax\Ex0403_MinAndMax.vcxproj", "{4498F678-E37B-44B3-8952-5FE7C3BEB321}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -131,6 +133,14 @@ Global
 		{E33E5A84-F396-4316-B774-31F41B3BF38C}.Release|x64.Build.0 = Release|x64
 		{E33E5A84-F396-4316-B774-31F41B3BF38C}.Release|x86.ActiveCfg = Release|Win32
 		{E33E5A84-F396-4316-B774-31F41B3BF38C}.Release|x86.Build.0 = Release|Win32
+		{4498F678-E37B-44B3-8952-5FE7C3BEB321}.Debug|x64.ActiveCfg = Debug|x64
+		{4498F678-E37B-44B3-8952-5FE7C3BEB321}.Debug|x64.Build.0 = Debug|x64
+		{4498F678-E37B-44B3-8952-5FE7C3BEB321}.Debug|x86.ActiveCfg = Debug|Win32
+		{4498F678-E37B-44B3-8952-5FE7C3BEB321}.Debug|x86.Build.0 = Debug|Win32
+		{4498F678-E37B-44B3-8952-5FE7C3BEB321}.Release|x64.ActiveCfg = Release|x64
+		{4498F678-E37B-44B3-8952-5FE7C3BEB321}.Release|x64.Build.0 = Release|x64
+		{4498F678-E37B-44B3-8952-5FE7C3BEB321}.Release|x86.ActiveCfg = Release|Win32
+		{4498F678-E37B-44B3-8952-5FE7C3BEB321}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
