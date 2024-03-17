@@ -84,7 +84,7 @@ int RandomizedSelect(vector<int>& arr, int lo, int hi, int k)
 
 int main()
 {
-	srand(1);
+	srand(1); // 랜덤 피벗을 사용할 때는 숫자를 바꿔가면서 테스트해보세요.
 
 	//vector<int> my_vector = { 6, 19, 4, 12, 14, 9, 15, 7, 8, 11, 3, 13, 2, 5, 10 };
 	//vector<int> my_vector = { 4, 19, 4, 12, 2, 9, 15, 2, 8, 11, 3, 1, 2, 1, 10 };
