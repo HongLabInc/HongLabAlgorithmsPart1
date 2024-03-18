@@ -26,28 +26,7 @@ void Print(vector<int>& arr, int lo, int hi, string sep = "")
 	cout << endl;
 }
 
-// CLRS p. 184
-int Partition(vector<int>& arr, int lo, int hi)
-{
-	int x = arr[hi]; // 마지막 값을 피벗으로 사용
-	int i = lo - 1;
-	for (int j = lo; j < hi; j++)
-		if (arr[j] <= x)
-		{
-			i += 1;
-			swap(arr[i], arr[j]);
-		}
-	swap(arr[i + 1], arr[hi]);
-	return i + 1;
-}
-
-void SelectionSortPass(vector<int>& arr, int lo, int hi, int stride = 1)
-{
-	for (int i = lo + stride; i <= hi; i += stride)
-		if (arr[i] < arr[lo])
-			swap(arr[i], arr[lo]);
-}
-
+// 그룹 단위로 출력 (그룹 단위 정렬 확인용)
 void PrintGroups(vector<int>& arr, int lo, int hi)
 {
 	for (int j = lo; j <= lo + hi - 1; j++)
@@ -59,17 +38,73 @@ void PrintGroups(vector<int>& arr, int lo, int hi)
 	}
 }
 
+int Partition(vector<int>& arr, int lo, int hi)
+{
+	int x = arr[hi];
+	int i = lo - 1;
+	for (int j = lo; j < hi; j++)
+		if (arr[j] <= x)
+		{
+			i += 1;
+			swap(arr[i], arr[j]);
+		}
+	swap(arr[i + 1], arr[hi]);
+	return i + 1; // 피벗이 이동한 위치 반환
+}
+
+// 선택정렬의 안쪽루프, stride 확인해보세요.
+void SelectionSortPass(vector<int>& arr, int lo, int hi, int stride = 1)
+{
+	for (int i = lo + stride; i <= hi; i += stride)
+		if (arr[i] < arr[lo])
+			swap(arr[i], arr[lo]);
+}
+
+// 구현 편의상 Select()가 값과 인덱스를 같이 반환
 struct Pair
 {
 	int index;
 	int value;
 };
 
+// CLRS 9.3
 Pair Select(vector<int>& arr, int lo, int hi, int k)
 {
-	// TODO:
+	cout << "n = " << hi - lo + 1 << ", lo = " << lo << ", hi = " << hi << ", k = " << k << endl;
+	Print(arr, lo, hi);
 
-	return Pair{ -1, -1 };
+	// 크기가 5보다 작은 경우에는 정렬로 찾기
+	while ((hi - lo + 1) % 5 != 0)
+	{
+		SelectionSortPass(arr, lo, hi);
+		if (k == 1) return { lo, arr[lo] };
+		lo += 1;
+		k -= 1;
+	}
+
+	int g = (hi - lo + 1) / 5; // 그룹의 개수
+
+	// 그룹단위 정렬 전 출력
+	PrintGroups(arr, lo, g);
+
+	//TODO: 각각의 그룹 정렬(힌트: stride 사용)
+
+	// 그룹단위 정렬 후 출력
+	PrintGroups(arr, lo, g);
+
+	// 가운데 몰려있는 그룹별 중간값들에 대해 재귀 호출
+	// Pair x = TODO
+
+	cout << "lo = " << lo << ", hi = " << hi << ", Median of medians = " << x.value << endl;
+
+	// 중간값들의 중간값을 피벗으로 사용
+	// swap(arr[x.index], arr[hi]);
+
+	int index = Partition(arr, lo, hi);
+
+	if (index - lo == k - 1) return Pair{ index, arr[index] };
+	else if (k - 1 < index - lo) return Select(arr, lo, index - 1, k);
+	else return Select(arr, index + 1, hi, k - index + lo - 1);
 }
 
 int SelectionBySorting(vector<int> arr, int k) // arr은 사본
@@ -86,17 +121,14 @@ struct Sample
 
 int main()
 {
-	//vector<int> my_vector = { 6, 19, 4, 12, 14, 9, 15, 7, 8, 11, 3, 13, 2, 5, 10 };
-	//vector<int> my_vector = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	//vector<int> my_vector = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-	//vector<int> my_vector = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
+	//vector<int> my_vector = { 11,  7, 14,  6, 20,  4,  0, 10, 23,  5,  8, 17,  9, 21, 12, 22, 19, 15,  3, 13, 18,  1,  2, 16 };
+	vector<int> my_vector(25);
+	std::iota(my_vector.begin(), my_vector.end(), 0); // iota는 0, 1, 2, ... , n-1 까지 순서대로 채워주는 함수
+	std::reverse(my_vector.begin(), my_vector.end());
 
-	vector<int> my_vector = { 11,  7, 14,  6, 20,  4,  0, 10, 23,  5,  8, 17,  9, 21, 12, 22, 19, 15,  3, 13, 18,  1,  2, 16 };
-	cout << my_vector.size() << endl;
-	cout << Select(my_vector, 0, my_vector.size() - 1, 13).value << endl;
-	// 주의: k는 k번째를 의미, 인덱스 자리는 k - 1
+	cout << "Median = " << Select(my_vector, 0, my_vector.size() - 1, std::ceil(my_vector.size() / 2.0)).value << endl;
 
-	// 아래는 더 많은 경우에 대한 테스트
+	return 0;
 
 	//random_device rd;
 	//mt19937 gen(rd());
