@@ -73,7 +73,7 @@ Pair Select(vector<int>& arr, int lo, int hi, int k)
 	cout << "n = " << hi - lo + 1 << ", lo = " << lo << ", hi = " << hi << ", k = " << k << endl;
 	Print(arr, lo, hi);
 
-	// 크기가 5보다 작은 경우에는 정렬로 찾기
+	// 5로 나눠서 떨어지지 않는 경우에는 정렬해서 범위를 줄이기
 	while ((hi - lo + 1) % 5 != 0)
 	{
 		SelectionSortPass(arr, lo, hi);
