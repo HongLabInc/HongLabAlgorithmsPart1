@@ -70,7 +70,8 @@ int RandomizedSelect(vector<int>& arr, int lo, int hi, int k)
 	if (lo == hi) return arr[lo]; // 하나만 남았을 경우
 
 	// 난수사용하는 경우와 아닌 경우 비교해보세요.
-	//int random = lo + rand() % (hi - lo);
+	//int random = lo + rand() % (hi - lo + 1);
+	//참고: uniform_int_distribution<int> vd(lo, hi)도 사용 가능
 	//swap(arr[random], arr[hi]);
 
 	int index = Partition(arr, lo, hi); // pivot index
