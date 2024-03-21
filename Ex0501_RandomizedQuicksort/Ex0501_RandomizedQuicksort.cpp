@@ -57,7 +57,7 @@ void RandomizedQuicksort(vector<int>& arr, int lo, int hi)
 
 int main()
 {
-	srand(0);
+	srand(2);
 
 	vector<int> arr = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
 
