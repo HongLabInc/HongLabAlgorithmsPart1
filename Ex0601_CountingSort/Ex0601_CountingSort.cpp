@@ -10,8 +10,11 @@ using namespace std;
 
 void Print(vector<int>& arr)
 {
-	for (auto& a : arr)
-		cout << a << " ";
+	for (auto a : arr)
+		if (a == -1)
+			cout << "X ";
+		else
+			cout << a << " ";
 	cout << endl;
 }
 

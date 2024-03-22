@@ -21,15 +21,11 @@ void CountingSort(vector<int>& arr, int k, int exp)
 	vector<int> temp = arr; // 복사
 
 	vector<int> count(k + 1, 0);
-	for (auto a : temp) count[a / exp % 10] += 1;
-	for (int i = 1; i < count.size(); i++)
-		count[i] += count[i - 1];
+	// TODO:
 
-	vector<int> output(temp.size(), -1);
 	for (int i = arr.size() - 1; i >= 0; i--)
 	{
-		arr[count[temp[i] / exp % 10] - 1] = temp[i];
-		count[temp[i] / exp % 10]--;
+		// TODO:
 	}
 }
 
