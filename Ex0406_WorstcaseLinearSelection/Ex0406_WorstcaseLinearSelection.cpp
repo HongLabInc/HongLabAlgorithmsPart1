@@ -27,13 +27,13 @@ void Print(vector<int>& arr, int lo, int hi, string sep = "")
 }
 
 // 그룹 단위로 출력 (그룹 단위 정렬 확인용)
-void PrintGroups(vector<int>& arr, int lo, int hi)
+void PrintGroups(vector<int>& arr, int lo, int g)
 {
-	for (int j = lo; j <= lo + hi - 1; j++)
+	for (int j = lo; j <= lo + g - 1; j++)
 	{
 		cout << "Group " << j - lo + 1 << " : ";
 		for (int l = 0; l < 5; l++)
-			cout << arr[j + l * hi] << " ";
+			cout << arr[j + l * g] << " ";
 		cout << endl;
 	}
 }
@@ -55,9 +55,11 @@ int Partition(vector<int>& arr, int lo, int hi)
 // 선택정렬의 안쪽루프, stride 확인해보세요.
 void SelectionSortPass(vector<int>& arr, int lo, int hi, int stride = 1)
 {
-	for (int i = lo + stride; i <= hi; i += stride)
-		if (arr[i] < arr[lo])
-			swap(arr[i], arr[lo]);
+	int min_index = lo;
+	for (int j = lo + stride; j <= hi; j += stride)
+		if (arr[j] < arr[min_index])
+			min_index = j;
+	swap(arr[lo], arr[min_index]);
 }
 
 // 구현 편의상 Select()가 값과 인덱스를 같이 반환
@@ -95,7 +97,7 @@ Pair Select(vector<int>& arr, int lo, int hi, int k)
 	// 가운데 몰려있는 그룹별 중간값들에 대해 재귀 호출
 	// Pair x = TODO
 
-	cout << "lo = " << lo << ", hi = " << hi << ", Median of medians = " << x.value << endl;
+	// cout << "lo = " << lo << ", hi = " << hi << ", Median of medians = " << x.value << endl;
 
 	// 중간값들의 중간값을 피벗으로 사용
 	// swap(arr[x.index], arr[hi]);
