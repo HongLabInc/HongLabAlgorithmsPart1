@@ -47,6 +47,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0603_SortingWords", "Ex06
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0604_BucketSort", "Ex0604_BucketSort\Ex0604_BucketSort.vcxproj", "{D37A6DAD-BEE3-40D1-9D51-CB7E2D24808F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0701_RedBlackTree", "Ex0701_RedBlackTree\Ex0701_RedBlackTree.vcxproj", "{FFE26C88-B071-437D-BDF3-8DD1CC96CCAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -231,6 +233,14 @@ Global
 		{D37A6DAD-BEE3-40D1-9D51-CB7E2D24808F}.Release|x64.Build.0 = Release|x64
 		{D37A6DAD-BEE3-40D1-9D51-CB7E2D24808F}.Release|x86.ActiveCfg = Release|Win32
 		{D37A6DAD-BEE3-40D1-9D51-CB7E2D24808F}.Release|x86.Build.0 = Release|Win32
+		{FFE26C88-B071-437D-BDF3-8DD1CC96CCAE}.Debug|x64.ActiveCfg = Debug|x64
+		{FFE26C88-B071-437D-BDF3-8DD1CC96CCAE}.Debug|x64.Build.0 = Debug|x64
+		{FFE26C88-B071-437D-BDF3-8DD1CC96CCAE}.Debug|x86.ActiveCfg = Debug|Win32
+		{FFE26C88-B071-437D-BDF3-8DD1CC96CCAE}.Debug|x86.Build.0 = Debug|Win32
+		{FFE26C88-B071-437D-BDF3-8DD1CC96CCAE}.Release|x64.ActiveCfg = Release|x64
+		{FFE26C88-B071-437D-BDF3-8DD1CC96CCAE}.Release|x64.Build.0 = Release|x64
+		{FFE26C88-B071-437D-BDF3-8DD1CC96CCAE}.Release|x86.ActiveCfg = Release|Win32
+		{FFE26C88-B071-437D-BDF3-8DD1CC96CCAE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
