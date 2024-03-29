@@ -261,14 +261,14 @@ public:
 		for (const auto c : s) line[x++] = c;
 		//cout << line << endl;
 	}
-	void Print2D() {
+	void Print2D() { Print2D(root); }
+	void Print2D(Node* root) {
 		if (!root) cout << "Empty" << endl;
 		else {
-			int h = Height() + 1, w = 4 * int(pow(2, h - 1));
+			int h = Height(root) + 1, w = 4 * int(pow(2, h - 1));
 			screen.clear();
 			screen.resize(h * 2, string(w, ' '));
 			Print2D(root, w / 2 - 2, 0, h - 1);
-			//cout << "DEBUG" << endl;
 			for (const auto& l : screen) cout << l << endl;
 		}
 	}
