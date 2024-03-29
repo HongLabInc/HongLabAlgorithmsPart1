@@ -2,6 +2,7 @@
 #include <string>
 #include <assert.h>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -254,10 +255,38 @@ public:
 		return 1 + std::max(Height(node->left), Height(node->right));
 	}
 
-	// 디버깅 편의 도구 https://stackoverflow.com/questions/36802354/print-binary-tree-in-a-pretty-way-using-c
-	void Print2D();
-	void PrintLevel(int n);
-	void DisplayLevel(Node* p, int lv, int d);
+	// 디버깅 편의 도구
+	vector<string> screen;
+	void PrintLine(int x, string s, string& line) {
+		for (const auto c : s) line[x++] = c;
+		//cout << line << endl;
+	}
+	void Print2D() {
+		if (!root) cout << "Empty" << endl;
+		else {
+			int h = Height() + 1, w = 4 * int(pow(2, h - 1));
+			screen.clear();
+			screen.resize(h * 2, string(w, ' '));
+			Print2D(root, w / 2 - 2, 0, h - 1);
+			//cout << "DEBUG" << endl;
+			for (const auto& l : screen) cout << l << endl;
+		}
+	}
+	void Print2D(Node* n, int x, int level, int s)
+	{
+		//cout << x << " " << level << " " << s << endl;
+		PrintLine(x, (IsRed(n) ? "*" : " ") + n->key, screen[2 * level]);
+		x -= int(pow(2, s));
+		if (n->left) {
+			PrintLine(x, "  /", screen[2 * level + 1]);
+			Print2D(n->left, x, level + 1, s - 1);
+		}
+		if (n->right)
+		{
+			PrintLine(x + 2 * int(pow(2, s)), "\\", screen[2 * level + 1]);
+			Print2D(n->right, x + 2 * int(pow(2, s)), level + 1, s - 1);
+		}
+	}
 };
 
 int main()
@@ -288,48 +317,3 @@ int main()
 	return 0;
 }
 
-// 디버깅 편의 도구 https://stackoverflow.com/questions/36802354/print-binary-tree-in-a-pretty-way-using-c
-void RedBlackBST::Print2D()
-{
-	int i = 0;
-	while (i < Height() + 1)
-	{
-		PrintLevel(i);
-		i++;
-		cout << endl;
-	}
-}
-
-void RedBlackBST::PrintLevel(int n)
-{
-	Node* temp = root;
-	int val = (int)pow(2.0, Height() - n + 2.0);
-	cout << setw(val) << "";
-	DisplayLevel(temp, n, val);
-}
-
-void RedBlackBST::DisplayLevel(Node* p, int lv, int d)
-{
-	int disp = 2 * d;
-	if (lv == 0) {
-		if (p == nullptr) {
-			cout << "   " << setw(disp - 3) << "";
-			return;
-		}
-		else {
-			int result = ((p->key.size() <= 1) ? 1 : (int)log10(p->key.size()) + 1);
-			cout << " " << ((p->color == Color::kRed ? "*" : "") + p->key) << " " << setw(static_cast<streamsize>(disp) - result - 2) << "";
-		}
-	}
-	else
-	{
-		if (p == nullptr && lv >= 1) {
-			DisplayLevel(NULL, lv - 1, d);
-			DisplayLevel(NULL, lv - 1, d);
-		}
-		else {
-			DisplayLevel(p->left, lv - 1, d);
-			DisplayLevel(p->right, lv - 1, d);
-		}
-	}
-}
