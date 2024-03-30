@@ -14,8 +14,8 @@ using Value = int;  // 구현 단순화(템플릿 미사용)
 
 enum Color { kRed, kBlack };
 // C-style로 구현한다면
-// #define kRed true
-// #define kBlack false
+// #define RED true
+// #define BLACK false
 
 class Node
 {
@@ -24,13 +24,18 @@ public:
 	Value val;
 	Node* left;
 	Node* right;
-	int size; // Number of nodes in this subtree
+	int size; // 서브트리 노드수, 여기서는 사용안함
 	Color color;
 
 	Node(Key key, Value val, int N, Color color)
 		: key(key), val(val), size(N), color(color),
 		left(nullptr), right(nullptr) // 널 포인터로 초기화
 	{}
+
+	// 자바로 구현할 때는 널포인터 대신에 
+	// 가상의 널 오브젝트를 하나 만들어서 가리키도록 구현할 수 있습니다.
+	// C++에서 굳이 그렇게 구현할 필요가 없기 때문에
+	// 여기서는 자식이 없으면 널포인터(nullptr)를 대입해놓습니다.
 };
 
 class RedBlackBST
@@ -188,21 +193,36 @@ public:
 		return Balance(h); // <- Balance() 구현
 	}
 
-	// 삭제할 때 사용됨
+	// 삭제할 때 사용됨 (실행 예시 설명 참고)
 	Node* MoveRedLeft(Node* h)
 	{
-		// TODO:
-		return nullptr;
+		cout << "MoveRedLeft() " << h->key << endl;
+
+		FlipColors(h);
+
+		// 오른쪽 자식의 왼쪽 자식이 레드라면 (오른쪽 자식이 3-노드라면)
+		//if (...)
+		//{
+		//	// 그 중에서 가장 작은 것을 h의 왼쪽으로 옮김 
+		//	// 삭제 후 남을 여분을 하나 가져오는 것
+		//	// 왼쪽을 3/4-노드로 만들어서 쉽게 삭제하기 위함 
+		//	TODO: 
+		//	TODO:
+		// 
+		//	FlipColors(h);
+		//}
+
+		return h;
 	}
 
-	// 삭제할 때 사용됨
+	// 삭제할 때 사용됨 (MoveRedLeft와 좌우대칭)
 	Node* MoveRedRight(Node* h)
 	{
-		assert(h != null);
-		assert(IsRed(h) && !IsRed(h->right) && !IsRed(h->right->left));
+		cout << "MoveRedRight() " << h->key << endl;
 
 		// TODO:
-		return nullptr;
+
+		return h;
 	}
 
 	// 가장 작은 키(key)를 찾아서 삭제
@@ -210,21 +230,49 @@ public:
 	{
 		assert(!IsEmpty());
 
-		// TODO:
+		// 루트가 가운데인 4-노드로 임시 변경
+		if (!IsRed(root->left) && !IsRed(root->right))
+			root->color = Color::kRed;
+
+		root = DeleteMin(root);
+
+		// 루트는 항상 블랙
+		if (!IsEmpty())
+			root->color = Color::kBlack;
 	}
 
 	Node* DeleteMin(Node* h)
 	{
-		// TODO:
-		return nullptr;
+		cout << "DeleteMin() " << h->key << endl;
+
+		// h가 가장 작은 노드라면 삭제하고 반환
+		//if ( TODO )
+		//{
+		//	cout << "Delete node " << h->key << endl;
+		//	delete h; // 자바에서는 가비지 컬렉터 사용
+		//	return nullptr;
+		//}
+
+		// 왼쪽자식이 블랙이고, 왼쪽-왼쪽 자식도 블랙이면
+		// 삭제하기 어렵기 때문에 MoveRedLeft()에서 3-노드로 변경
+		//if ( TODO )
+		//{
+		//	TODO:
+		// 
+		//	Print2D(h);
+		//}
+
+		// 계속 찾아 내려감
+		h->left = DeleteMin(h->left);
+
+		return Balance(h);
 	}
 
-	// 가장 큰 키(key)를 찾아서 삭제
+	// 가장 큰 키(key)를 찾아서 삭제 (DeleteMin과 대칭)
 	void DeleteMax()
 	{
 		// TODO:
 	}
-
 	Node* DeleteMax(Node* h)
 	{
 		// TODO:
@@ -234,14 +282,58 @@ public:
 	// 임의의 키(key)를 찾아서 삭제
 	void Delete(Key key)
 	{
-		// TODO:
+		// 삭제하려는 키를 가진 노드가 존재하는지 미리 확인
+		if (!Contains(key)) return;
+
+		if (!IsRed(root->left) && !IsRed(root->right))
+			root->color = Color::kRed;
+
+		root = Delete(root, key);
+
+		if (!IsEmpty()) root->color = Color::kBlack;
 	}
 
 	Node* Delete(Node* h, Key key)
 	{
-		assert(Contains(key) == true);
+		//if ( TODO ) // 왼쪽으로 찾아 내려가서 지우는 경우
+		//{
+		//	// 힌트: DeleteMin()과 비슷함
 
-		// TODO:
+		//	if ( TODO )
+		//		h = TODO
+
+		//	h->left = TODO
+		//}
+		//else // 오른쪽으로 찾아 내려가거나 바로 삭제하는 경우
+		//{
+		//	// DeleteMax()와 비슷한 경우
+		//	if ( TODO )
+		//		h = TODO
+
+		//	// 키가 일치하고 오른쪽 서브트리가 없으면 삭제
+		//	// 왼쪽 서브트리에 대한 처리는 바로 위의 RotateRight()에 해줬음
+		//	if ((TODO) && (TODO))
+		//	{
+		//		delete h; // 자바는 가비지 컬렉터 사용
+		//		return nullptr;
+		//	}
+
+		//	if (!IsRed(h->right) && !IsRed(h->right->left))
+		//		h = MoveRedRight(h);
+
+		//	// 삭제하는 경우
+		//	if (key == h->key)
+		//	{
+		//		// 오른쪽 서브트리에서 가장 작은 것을 h로 복사한 후에
+		//		// DeleteMin()으로 그것을 삭제
+		//      
+		//		// TODO: Min() 사용, 4줄 정도 됩니다.
+		//	}
+		//	else {
+		//		// 오른쪽으로 계속 찾아가기
+		//		h->right = Delete(h->right, key);
+		//	}
+		//}
 
 		return Balance(h);
 	}
@@ -291,18 +383,55 @@ public:
 
 int main()
 {
+	// SEARCHXMPL 순서로 추가
 	{
 		RedBlackBST bst;
 
-		for (char c : string("SEARCHXMPL"))
+		string keys = string("SEARCHXMPL");
+
+		for (char c : keys)
 		{
 			cout << "Insert: " << string(1, c) << endl;
 			bst.Insert(string(1, c), int(c));
-			bst.Print2D();
+			//bst.Print2D();
 
 		}
+
+		//// Search 테스트
+		//for (char c : keys)
+		//{
+		//	cout << c << " " << int(c) << " " << bst.Search(string(1, c)) << endl;
+		//}
+
+		bst.Print2D();
+
+		//for (char c : keys)
+		//{
+		//	cout << "Delete: " << string(1, c) << endl;
+		//	bst.Delete(string(1, c));
+		//	bst.Print2D();
+
+		//}
+		//return 0;
+
+		//while (!bst.IsEmpty())
+		//{
+		//	cout << "DeleteMin: " << bst.Min() << endl;
+		//	bst.DeleteMin();
+		//	bst.Print2D();
+		//}
+		//cout << endl;
+
+		//while (!bst.IsEmpty())
+		//{
+		//	cout << "DeleteMax: " << bst.Max() << endl;
+		//	bst.DeleteMax();
+		//	bst.Print2D();
+		//}
+		//cout << endl;
 	}
 
+	// ACEHLMPRSX 순서로 추가
 	//{
 	//	RedBlackBST bst;
 
