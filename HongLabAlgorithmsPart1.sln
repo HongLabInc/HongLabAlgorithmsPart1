@@ -51,6 +51,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0701_RedBlackTree", "Ex07
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0801_SeparateChaining", "Ex0801_SeparateChaining\Ex0801_SeparateChaining.vcxproj", "{48343261-8611-4C5E-AF71-D7098BC3C740}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0802_UnorderedMap", "Ex0802_UnorderedMap\Ex0802_UnorderedMap.vcxproj", "{7D88B6B9-41A9-4CE5-ACAB-053634841852}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -251,6 +253,14 @@ Global
 		{48343261-8611-4C5E-AF71-D7098BC3C740}.Release|x64.Build.0 = Release|x64
 		{48343261-8611-4C5E-AF71-D7098BC3C740}.Release|x86.ActiveCfg = Release|Win32
 		{48343261-8611-4C5E-AF71-D7098BC3C740}.Release|x86.Build.0 = Release|Win32
+		{7D88B6B9-41A9-4CE5-ACAB-053634841852}.Debug|x64.ActiveCfg = Debug|x64
+		{7D88B6B9-41A9-4CE5-ACAB-053634841852}.Debug|x64.Build.0 = Debug|x64
+		{7D88B6B9-41A9-4CE5-ACAB-053634841852}.Debug|x86.ActiveCfg = Debug|Win32
+		{7D88B6B9-41A9-4CE5-ACAB-053634841852}.Debug|x86.Build.0 = Debug|Win32
+		{7D88B6B9-41A9-4CE5-ACAB-053634841852}.Release|x64.ActiveCfg = Release|x64
+		{7D88B6B9-41A9-4CE5-ACAB-053634841852}.Release|x64.Build.0 = Release|x64
+		{7D88B6B9-41A9-4CE5-ACAB-053634841852}.Release|x86.ActiveCfg = Release|Win32
+		{7D88B6B9-41A9-4CE5-ACAB-053634841852}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
