@@ -62,16 +62,9 @@ private:
 	{
 		path.push_back(source);
 
-		if (source == sink)
-		{
-			// 경로 출력
-			PrintPath(path);
-			return; // 더 찾아갈 필요없음
+		// TODO: source == sink 인 경우
 
-			// 주의: source->visited = true로 설정하면 다른 경로가 못 들어옴
-		}
-
-		// TODO:
+		// TODO: 그 외의 경우
 	}
 
 	void PrintPath(vector<Vertex*> path)
@@ -90,40 +83,39 @@ int main()
 	// Digraph: 간선에서 한쪽으로만 갈 수 있는 단방향 그래프
 
 	// 간단한 경우
-	//{
-	//	// 0: 애피타이저
-	//	// 1: 메인요리
-	//	// 2: 디저트
+	{
+		// 0: 애피타이저
+		// 1: 메인요리
+		// 2: 디저트
 
-	//	Graph g(3);
-	//	g.AddDiEdge(0, 1); // 애피타이저 -> 메인요리
-	//	g.AddDiEdge(1, 2); // 메인요리 -> 디저트
-	//	g.AddDiEdge(0, 2); // 애피타이저 -> 디저트
+		Graph g(3);
+		g.AddDiEdge(0, 1); // 애피타이저 -> 메인요리
+		g.AddDiEdge(1, 2); // 메인요리 -> 디저트
+		g.AddDiEdge(0, 2); // 애피타이저 -> 디저트
 
-	//	// 디저트->애피타이저 X, 싸이클이 생기기 때문
+		// 디저트->애피타이저 X, 싸이클이 생기기 때문
 
-	//	g.DepthFirstPath(0, 2);
-	//}
+		g.DepthFirstPath(0, 2);
+	}
 
 	// Sedgewick Algorithm 4.1 p.536 (조금 달라요)
-	{
-		Graph g(6);
+	//{
+	//	Graph g(6);
 
-		g.AddDiEdge(0, 2);
-		g.AddDiEdge(2, 1);
-		g.AddDiEdge(2, 3);
-		g.AddDiEdge(3, 4);
-		g.AddDiEdge(3, 5);
+	//	g.AddDiEdge(0, 2);
+	//	g.AddDiEdge(2, 1);
+	//	g.AddDiEdge(2, 3);
+	//	g.AddDiEdge(3, 4);
+	//	g.AddDiEdge(3, 5);
+	//	g.AddDiEdge(1, 5);
 
-		g.AddDiEdge(1, 5);
-
-		for (int i = 0; i < 5; i++)
-			for (int j = i + 1; j < 6; j++)
-			{
-				g.DepthFirstPath(i, j);
-				g.DepthFirstPath(j, i);
-			}
-	}
+	//	for (int i = 0; i < 5; i++)
+	//		for (int j = i + 1; j < 6; j++)
+	//		{
+	//			g.DepthFirstPath(i, j);
+	//			g.DepthFirstPath(j, i);
+	//		}
+	//}
 
 	return 0;
 }
