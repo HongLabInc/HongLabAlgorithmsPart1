@@ -54,12 +54,7 @@ public:
 		post = queue<Vertex*>();
 		revPost = stack<Vertex*>();
 
-		for (auto* v : this->vertices)
-			v->visited = false;
-
-		for (auto* v : this->vertices)
-			if (!v->visited)
-				TopologicalSortHelper(v);
+		// TODO: 
 
 		return revPost;
 	}

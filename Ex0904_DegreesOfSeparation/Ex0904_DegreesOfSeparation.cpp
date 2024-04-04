@@ -49,7 +49,7 @@ public:
 		vertices[w]->out_neighbors.push_back(vertices[v]);
 	}
 
-	stack<Vertex*> BreadthFirstPaths(int source, int sink)
+	deque<Vertex*> BreadthFirstPaths(int source, int sink)
 	{
 		for (auto* v : vertices)
 			v->visited = false;
@@ -60,16 +60,13 @@ public:
 		queue<Vertex*> q;
 		q.push(vertices[source]);
 
-		vector<Vertex*> path;
-
 		while (!q.empty())
 		{
 			Vertex* v = q.front();
 			q.pop();
 
-			path.push_back(v);
-
-			// TODO: sink를 찾았다면 break
+			if (v == vertices[sink])
+				break;
 
 			for (Vertex* w : v->out_neighbors)
 			{
@@ -78,26 +75,26 @@ public:
 					w->visited = true;
 					q.push(w);
 
-					// TODO: prev 업데이트
+					// prev[TODO] = TODO
 				}
 			}
 		}
 
-		stack<Vertex*> s;
-		if (prev[sink])
-			s.push(vertices[sink]);
-		else
-			cout << "No path found" << endl;
+		deque<Vertex*> path;
 
-		// 다른 예제들과의 호환성을 위해 역순으로 스택에 저장
-		Vertex* p = prev[sink];
-		while (p != nullptr)
-		{
-			s.push(p);
-			p = prev[p->value];
+		// TODO: prev를 이용해서 path 만들기
+		//       deque의 push_front() 사용
+
+
+		// 결과 출력 (숫자만)
+		for (auto* v : path) {
+			cout << v->value;
+			if (v != path.back())
+				cout << " -> ";
 		}
+		cout << endl;
 
-		return s;
+		return path;
 	}
 
 private:
@@ -171,7 +168,6 @@ int main()
 				if (map.count(s) == 0) {
 					map[s] = int(values.size());
 					values.push_back(s);
-					cout << map[s] << " " << s << endl;
 				}
 
 		Graph g(int(map.size()));
@@ -179,27 +175,16 @@ int main()
 		for (auto& l : jobs)
 		{
 			int v = map[l[0]];
-			cout << v << " : ";
 			for (int i = 1; i < l.size(); i++)
-			{
 				g.AddDiEdge(v, map[l[i]]);
-
-				cout << map[l[i]] << ", ";
-			}
-			cout << endl;
 		}
 
-		auto result = g.BreadthFirstPaths(map["Algorithms"], map["Neural Networks"]);
+		deque<Vertex*> result = g.BreadthFirstPaths(map["Algorithms"], map["Neural Networks"]);
 
-		while (!result.empty())
-		{
-			cout << values[result.top()->value] << " " << result.top()->value << endl;
-			result.pop();
-		}
+		for (auto* v : result)
+			cout << values[v->value] << " " << v->value << endl;
 	}
 
-	// Six Degrees of Kevin Bacon
-	// https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon
 	{
 		vector<vector<string>> jobs;
 
@@ -225,6 +210,7 @@ int main()
 				if (map.count(s) == 0) {
 					map[s] = int(values.size());
 					values.push_back(s);
+					// cout << map[s] << " " << s << endl;
 				}
 
 		Graph g(int(map.size()));
@@ -234,19 +220,17 @@ int main()
 			int v = map[l[0]];
 			for (int i = 1; i < l.size(); i++)
 			{
-				// TODO: 
+				g.AddBiEdge(v, map[l[i]]); // Bi-directional edge
+
+				//cout << map[l[i]] << ", ";
 			}
 		}
 
-		auto result = g.BreadthFirstPaths(map["Bacon, Kevin"], map["Kidman, Nicole"]);
-		//auto my_stack = g.BreadthFirstPaths(map["Bacon, Kevin"], map["Grant, Cary"]);
+		deque<Vertex*> result = g.BreadthFirstPaths(map["Bacon, Kevin"], map["Kidman, Nicole"]);
+		//deque<Vertex*> result = g.BreadthFirstPaths(map["Bacon, Kevin"], map["Grant, Cary"]);
 
-		while (!result.empty())
-		{
-			cout << values[result.top()->value] << " " << result.top()->value << endl;
-			result.pop();
-		}
-
+		for (auto* v : result)
+			cout << values[v->value] << " " << v->value << endl;
 	}
 
 	return 0;
