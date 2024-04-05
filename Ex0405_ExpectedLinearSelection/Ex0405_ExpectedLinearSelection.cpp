@@ -93,7 +93,7 @@ int main()
 
 	Print(my_vector, 0, my_vector.size() - 1);
 
-	cout << RandomizedSelect(my_vector, 0, my_vector.size() - 1, std::ceil(my_vector.size() / 2)) << endl;
+	cout << RandomizedSelect(my_vector, 0, my_vector.size() - 1, std::ceil(my_vector.size() / 2.0)) << endl;
 	// 주의: k는 k번째를 의미, 인덱스는 0부터 시작하기 때문에 인덱스로는 k - 1 자리
 
 	return 0; // 아래 테스트 실행하려면 제거
