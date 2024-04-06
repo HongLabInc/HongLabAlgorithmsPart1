@@ -43,6 +43,23 @@ public:
 		vertices[w]->out_neighbors.push_back(vertices[v]);
 	}
 
+	void DFS(int source)
+	{
+		cout << "Depth-first Search: ";
+		for (auto* v : this->vertices)
+			v->visited = false;
+		DFS(vertices[source]);
+		cout << endl;
+	}
+	void DFS(Vertex* source)
+	{
+		cout << source->value << " ";
+		source->visited = true;
+		for (auto* w : source->out_neighbors)
+			if (!w->visited)
+				DFS(w);
+	}
+
 	// source에서 sink로 가는 경로(path) 찾기
 	void DepthFirstPath(int source, int sink)
 	{
@@ -51,20 +68,19 @@ public:
 		for (auto* v : this->vertices)
 			v->visited = false;
 
-		// DepthFirstPathHelper(... , ... , vector<Vertex*>());
+		DepthFirstPathHelper(vertices[source], vertices[sink], vector<Vertex*>());
 	}
 
 private:
 	vector<Vertex*> vertices;
 
-	// 주의: 인수 path는 호출될때마다 매번 복사가 됩니다.
+	// 힌트: 인수 path는 호출될때마다 매번 복사가 됩니다.
 	void DepthFirstPathHelper(Vertex* source, Vertex* sink, vector<Vertex*> path)
 	{
 		path.push_back(source);
+		PrintPath(path);
 
-		// TODO: source == sink 인 경우
-
-		// TODO: 그 외의 경우
+		// TODO:
 	}
 
 	void PrintPath(vector<Vertex*> path)
@@ -80,7 +96,7 @@ private:
 
 int main()
 {
-	// Digraph: 간선에서 한쪽으로만 갈 수 있는 단방향 그래프
+	// 한 경로 안에서 한 번 방문한 정점은 다시 방문하지 않는다.
 
 	// 간단한 경우
 	{
@@ -93,33 +109,26 @@ int main()
 		g.AddDiEdge(1, 2); // 메인요리 -> 디저트
 		g.AddDiEdge(0, 2); // 애피타이저 -> 디저트
 
-		// 디저트->애피타이저 X, 싸이클이 생기기 때문
-
+		g.DFS(0);
 		g.DepthFirstPath(0, 2);
 	}
 
 	// Sedgewick Algorithm 4.1 p.536 (조금 달라요)
-	//{
-	//	Graph g(6);
+	{
+		Graph g(6);
 
-	//	g.AddDiEdge(0, 2);
-	//	g.AddDiEdge(2, 1);
-	//	g.AddDiEdge(2, 3);
-	//	g.AddDiEdge(3, 4);
-	//	g.AddDiEdge(3, 5);
-	//	g.AddDiEdge(1, 5);
+		g.AddDiEdge(0, 2);
+		g.AddDiEdge(2, 1);
+		g.AddDiEdge(2, 3);
+		g.AddDiEdge(3, 4);
+		g.AddDiEdge(1, 5);
+		g.AddDiEdge(2, 4);
+		g.AddBiEdge(3, 5); // 주의: 양방향 간선
 
-	//	for (int i = 0; i < 5; i++)
-	//		for (int j = i + 1; j < 6; j++)
-	//		{
-	//			g.DepthFirstPath(i, j);
-	//			g.DepthFirstPath(j, i);
-	//		}
-	//}
+		g.DFS(2);
+		g.DepthFirstPath(2, 4);
+	}
 
 	return 0;
 }
-
-// 참고 자료
-// - https://www.geeksforgeeks.org/find-paths-given-source-destination/
 
