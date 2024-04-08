@@ -48,18 +48,7 @@ public:
 		vertices[w]->in_neighbors.push_back(vertices[v]);
 	}
 
-	stack<Vertex*> TopologicalSort()
-	{
-		pre = queue<Vertex*>();
-		post = queue<Vertex*>();
-		revPost = stack<Vertex*>();
-
-		// TODO: 
-
-		return revPost;
-	}
-
-	void Check(stack<Vertex*> my_stack) // my_stack의 사본
+	void PrecedenceCheck(stack<Vertex*> my_stack) // my_stack의 사본
 	{
 		for (auto* v : this->vertices)
 			v->visited = false;
@@ -67,7 +56,7 @@ public:
 		while (!my_stack.empty())
 		{
 			Vertex* v = my_stack.top();
-			cout << "Check " << v->value << " : ";
+			cout << "Precedence check " << v->value << " : ";
 			for (auto* w : v->in_neighbors)
 			{
 				if (!w->visited)
@@ -84,6 +73,17 @@ public:
 			my_stack.pop();
 		}
 		cout << "OK" << endl;
+	}
+
+	stack<Vertex*> TopologicalSort()
+	{
+		pre = queue<Vertex*>();
+		post = queue<Vertex*>();
+		revPost = stack<Vertex*>();
+
+		// TODO: 
+
+		return revPost;
 	}
 
 private:
@@ -112,7 +112,7 @@ int main()
 
 		auto my_stack = g.TopologicalSort();
 
-		g.Check(my_stack);
+		g.PrecedenceCheck(my_stack);
 
 		// 결과 출력
 		while (!my_stack.empty())
@@ -138,7 +138,7 @@ int main()
 		g.AddDiEdge(3, 1);
 
 		auto my_stack = g.TopologicalSort();
-		g.Check(my_stack);
+		g.PrecedenceCheck(my_stack);
 
 		while (!my_stack.empty())
 		{
@@ -201,7 +201,7 @@ int main()
 		}
 
 		auto my_stack = g.TopologicalSort();
-		g.Check(my_stack);
+		g.PrecedenceCheck(my_stack);
 
 		while (!my_stack.empty())
 		{

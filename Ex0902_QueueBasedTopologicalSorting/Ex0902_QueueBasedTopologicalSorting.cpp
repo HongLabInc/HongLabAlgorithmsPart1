@@ -24,6 +24,7 @@ struct Vertex
 	// int indegree = 0; // indegree를 Vertex에 저장하는 방식으로 구현할 수도 있습니다.
 	// 특정 기능을 수행하기 위한 임시 메모리는 Vertex에 넣어두기 보다는
 	// 별도로 필요한 때만 할당해서 사용하는 것이 더 효율적일 수도 있습니다.
+	// 여기서는 아래에 별도의 vector<int> indegree(vertices.size());를 사용합니다.
 };
 
 class Graph
@@ -48,6 +49,34 @@ public:
 		vertices[w]->in_neighbors.push_back(vertices[v]); // 선행 정점 방문 확인용
 	}
 
+	void PrecedenceCheck(stack<Vertex*> my_stack) // my_stack의 사본
+	{
+		for (auto* v : this->vertices)
+			v->visited = false;
+
+		while (!my_stack.empty())
+		{
+			Vertex* v = my_stack.top();
+			cout << "Precedence check " << v->value << " : ";
+			for (auto* w : v->in_neighbors)
+			{
+				// 선수조건을 만족했는지 확인
+				if (!w->visited)
+				{
+					cout << "Wrong" << endl;
+					exit(-1);
+				}
+				else {
+					cout << w->value << ", ";
+				}
+			}
+			cout << endl;
+			v->visited = true;
+			my_stack.pop();
+		}
+		cout << "OK" << endl;
+	}
+
 	stack<Vertex*> QueueBasedTopologicalSort()
 	{
 		vector<int> indegree(vertices.size()); // indegree를 Vertex에 저장할 수도 있습니다.
@@ -69,35 +98,6 @@ public:
 
 		return s;
 	}
-
-	void Check(stack<Vertex*> my_stack) // my_stack의 사본
-	{
-		for (auto* v : this->vertices)
-			v->visited = false;
-
-		while (!my_stack.empty())
-		{
-			Vertex* v = my_stack.top();
-			cout << "Check " << v->value << " : ";
-			for (auto* w : v->in_neighbors)
-			{
-				// 선행 방문 조건을 만족했는지 확인
-				if (!w->visited)
-				{
-					cout << "Wrong" << endl;
-					exit(-1);
-				}
-				else {
-					cout << w->value << ", ";
-				}
-			}
-			cout << endl;
-			v->visited = true;
-			my_stack.pop();
-		}
-		cout << "OK" << endl;
-	}
-
 private:
 	vector<Vertex*> vertices;
 };
@@ -119,7 +119,7 @@ int main()
 
 		auto my_stack = g.QueueBasedTopologicalSort();
 
-		g.Check(my_stack);
+		g.PrecedenceCheck(my_stack);
 
 		// 결과 출력
 		while (!my_stack.empty())
@@ -145,7 +145,7 @@ int main()
 		g.AddDiEdge(3, 1);
 
 		auto my_stack = g.QueueBasedTopologicalSort();
-		g.Check(my_stack);
+		g.PrecedenceCheck(my_stack);
 
 		while (!my_stack.empty())
 		{
@@ -174,11 +174,11 @@ int main()
 		};
 
 		vector<string> values; // int -> string
-		map<string, int> keys; // string -> int
+		map<string, int> keys;  // string -> int
 		for (auto& l : jobs)
 			for (auto& s : l)
 				if (keys.count(s) == 0) {
-					keys[s] = int(keys.size());
+					keys[s] = int(values.size());
 					values.push_back(s);
 					cout << keys[s] << " " << s << endl;
 				}
@@ -199,7 +199,7 @@ int main()
 		}
 
 		auto my_stack = g.QueueBasedTopologicalSort();
-		g.Check(my_stack);
+		g.PrecedenceCheck(my_stack);
 
 		while (!my_stack.empty())
 		{
