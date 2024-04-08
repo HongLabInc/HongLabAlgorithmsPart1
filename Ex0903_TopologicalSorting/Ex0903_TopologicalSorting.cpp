@@ -131,6 +131,7 @@ int main()
 
 		g.AddDiEdge(5, 2);
 		g.AddDiEdge(5, 0);
+		g.AddDiEdge(0, 2);
 		g.AddDiEdge(4, 0);
 		g.AddDiEdge(4, 1);
 		g.AddDiEdge(2, 3);
@@ -160,6 +161,8 @@ int main()
 
 	{
 		// Sedgewick Ch4.2 p.582 jobs.txt 예제
+		// 가장 왼쪽의 과목이 나머지의 선수과목인 예제입니다.
+		// 예: "Algorithms"가 "Theoretical CS", "Databases", "Scientific Computing" 세 과목의 선수과목
 		vector<vector<string>> jobs = {
 			{"Algorithms", "Theoretical CS", "Databases", "Scientific Computing"},
 			{"Introduction to CS", "Advanced Programming", "Algorithms"},
