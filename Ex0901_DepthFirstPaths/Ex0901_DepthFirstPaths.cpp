@@ -10,7 +10,7 @@ struct Vertex
 {
 	Vertex(int v) { value = v; }
 
-	int value = -1;
+	int value = -1;// 변수 이름은 value지만 실질적으로는 배열에 이 정점이 저장된 인덱스입니다.
 	bool visited = false;
 
 	vector<Vertex*> out_neighbors; // 나가는 방향의 이웃 vertex들에 대한 포인터
