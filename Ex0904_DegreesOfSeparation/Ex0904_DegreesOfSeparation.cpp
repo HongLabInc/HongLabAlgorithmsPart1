@@ -186,6 +186,10 @@ int main()
 	}
 
 	{
+		// movies.txt 파일 출처
+		// http://algs4.cs.princeton.edu
+		// http://algs4.cs.princeton.edu/code/algs4-data.zip
+
 		vector<vector<string>> jobs;
 
 		cout << "Read file" << endl;
