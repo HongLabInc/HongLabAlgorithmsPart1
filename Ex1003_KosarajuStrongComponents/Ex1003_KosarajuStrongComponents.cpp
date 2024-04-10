@@ -56,8 +56,7 @@ public:
 
 	void Transpose()
 	{
-		for (auto* v : vertices)
-			swap(v->in_neighbors, v->out_neighbors);
+		// TODO:
 
 		// 인접 행렬 표현에서 행렬을 transpose 시키는 것과 동일
 	}
