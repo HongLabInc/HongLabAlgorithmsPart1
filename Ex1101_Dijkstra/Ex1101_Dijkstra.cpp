@@ -87,8 +87,12 @@ public:
 		int v = pq.top().second; // pair<double, int> 중에서 int 부분
 		pq.pop();
 
-		if (visited[v]) return; // 중복 방문 방지
+		if (visited[v]) return;
 		visited[v] = true;
+		// 우선순위큐에 change_key()가 없기 때문에 중복 방문을 방지하고 싶은 경우에는
+		// visited에 기록하는 방식으로 보완할 수 있습니다. 
+		// visited 관련 코드를 모두 삭제해도 최단거리 결과는 동일합니다.
+		// 아래 pq.push() 밑의 설명도 참고하세요.
 
 		// 인접 edge들 중에서 가장 가까운 것을 이용해서 업데이트
 		for (DirectedEdge& e : g.Adj(v))
