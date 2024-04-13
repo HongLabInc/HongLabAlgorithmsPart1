@@ -73,7 +73,7 @@ public:
 
 private:
 	vector<Vertex*> vertices;
-	int current_time; // 실행 순서 추적용
+	int current_time = 0; // 실행 순서 추적용
 
 	void PrintPath(vector<Vertex*> path)
 	{
