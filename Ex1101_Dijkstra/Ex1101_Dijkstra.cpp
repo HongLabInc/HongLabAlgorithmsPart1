@@ -57,10 +57,11 @@ public:
 class DijkstraShortestPaths
 {
 public:
-	DijkstraShortestPaths(EdgeWeightedDiagraph& g, int s) // s는 시작 정점의 인덱스
+	DijkstraShortestPaths(EdgeWeightedDiagraph& g, int s)
 		:
 		prev(g.num_vertices, -1),
-		dist(g.num_vertices, numeric_limits<double>::infinity())
+		dist(g.num_vertices, numeric_limits<double>::infinity()),
+		visited(g.num_vertices, false)
 	{
 		dist[s] = 0.0; // 자기자신과의 거리는 0
 
@@ -72,8 +73,6 @@ public:
 		while (!pq.empty())
 		{
 			Relax(g);
-
-			PrintDist(dist);
 		}
 
 		PrintPaths(g.adj); // 최단 경로 출력
@@ -85,9 +84,11 @@ public:
 
 	void Relax(EdgeWeightedDiagraph& g)
 	{
-		int v = pq.top().second; // pair<double, int> 중에서 int 부분 (정점 인덱스)
-
+		int v = pq.top().second; // pair<double, int> 중에서 int 부분
 		pq.pop();
+
+		if (visited[v]) return; // 중복 방문 방지
+		visited[v] = true;
 
 		// 인접 edge들 중에서 가장 가까운 것을 이용해서 업데이트
 		for (DirectedEdge& e : g.Adj(v))
@@ -95,23 +96,31 @@ public:
 			// dist[v]: s에서 v까지 오기 위해 현재까지 발견된 최소거리 경로
 			// v에서 다시 w로 이동할 경우 dist 업데이트
 
-			int w = e.To();
+			//int w = TODO
 
 			// 현재까지 알려진 v까지의 최단거리에 v의 아웃 간선의 거리를 더해서 w 까지의 새로운 거리 계산
-			// double new_dist = TODO 
-
-			//if (TODO) // w까지 오는 새로운 최단 경로를 발견했다면
+			//double new_dist = TODO
+			//if (TODO) // w까지 오는 새로운 최단 경로 발견
 			//{
-			//	TODO: 최단 거리 기록
-			//	TODO: 최단 경로 기록
+			//	dist[w] = TODO;
+
+			//	prev[w] = TODO; // 최단 경로 기록
 
 			//	pq.push({ dist[w], w });
 			//	// vertex w까지 오는 더 빠른 경로가 나타났으니 w 이후의 경로를 다시 업데이트 하라는 의미
 			//	// 이론적으로는 이미 큐에 들어있는 w에 대해서 dist[w]를 줄여주는 것이 깔끔합니다.
 			//	// 현실적으로는 이미 들어 있던 dist[w]는 건드릴 필요 없이
-			//	// 더 작은 dist[w]를 넣어주면 나중에 더 큰 것은 무시됩니다.
+			//	// 더 작은 dist[w]를 추가로 넣어주면 visited에 의해 더 큰 것은 무시됩니다.
+			//	// https://stackoverflow.com/questions/9209323/easiest-way-of-using-min-priority-queue-with-key-update-in-c
+
+			//	// pq에 update() 기능이 있을 때의 가상 구현
+			//	// if(pq.contains(w) pq.update({dist[w], w});
+			//	// else pr.push({dist[w], w});
+			//	// visited 관련 코드는 모두 제거 가능
 			//}
 		}
+
+		PrintDist(dist);
 	}
 
 	void PrintIndex(vector<double>& dist)
@@ -134,13 +143,14 @@ public:
 	{
 		for (int i = 0; i < adj.size(); i++)
 		{
-			// TODO: 앞에서 몇 번 나왔던 패턴입니다.
+			// TODO: 앞에 비슷한 패턴이 몇 번 나왔습니다.
 		}
 	}
 
 private:
 	vector<int> prev;
 	vector<double> dist;
+	vector<bool> visited;
 
 	priority_queue<pair<double, int>, vector<pair<double, int>>, greater<pair<double, int>>> pq;
 };
