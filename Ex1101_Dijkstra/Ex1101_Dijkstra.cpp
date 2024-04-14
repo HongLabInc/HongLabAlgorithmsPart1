@@ -60,7 +60,7 @@ public:
 	DijkstraShortestPaths(EdgeWeightedDiagraph& g, int s)
 		:
 		prev(g.num_vertices, -1),
-		dist(g.num_vertices, numeric_limits<double>::infinity()),
+		dist(g.num_vertices, numeric_limits<double>::infinity()), // 일단 전부 무한대 거리로 초기화
 		visited(g.num_vertices, false)
 	{
 		dist[s] = 0.0; // 자기자신과의 거리는 0
@@ -152,9 +152,9 @@ public:
 	}
 
 private:
-	vector<int> prev;
-	vector<double> dist;
-	vector<bool> visited;
+	vector<int> prev;     // 최단 경로 기록
+	vector<double> dist;  // 거리 기록
+	vector<bool> visited; // 방문했는지 기록
 
 	priority_queue<pair<double, int>, vector<pair<double, int>>, greater<pair<double, int>>> pq;
 };
