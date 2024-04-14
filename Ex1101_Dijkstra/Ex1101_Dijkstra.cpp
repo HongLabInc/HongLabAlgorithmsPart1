@@ -94,6 +94,8 @@ public:
 		// visited 관련 코드를 모두 삭제해도 최단거리 결과는 동일합니다.
 		// 아래 pq.push() 밑의 설명도 참고하세요.
 
+		cout << v << endl;
+
 		// 인접 edge들 중에서 가장 가까운 것을 이용해서 업데이트
 		for (DirectedEdge& e : g.Adj(v))
 		{
