@@ -141,21 +141,7 @@ public:
 	{
 		for (int i = 0; i < adj.size(); i++)
 		{
-			deque<int> path;
-			path.push_front(i);
-			int v = prev[i];
-			while (v != -1)
-			{
-				path.push_front(v);
-				v = prev[v];
-			}
-
-			for (auto v : path) {
-				cout << v;
-				if (v != path.back())
-					cout << " -> ";
-			}
-			cout << endl;
+			// TODO: 앞에 비슷한 패턴이 몇 번 나왔습니다.
 		}
 	}
 
