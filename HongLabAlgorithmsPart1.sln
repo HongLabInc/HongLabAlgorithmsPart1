@@ -75,6 +75,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex1003_KosarajuStrongCompon
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex0908_TracingDFS", "Ex0908_TracingDFS\Ex0908_TracingDFS.vcxproj", "{502F2AFC-CF35-4BE6-B228-2864EFE2A19F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex1101_PriorityQueue", "Ex1101_PriorityQueue\Ex1101_PriorityQueue.vcxproj", "{A7D4DB33-1EC9-4EF9-A96B-512364CBB655}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -371,6 +373,14 @@ Global
 		{502F2AFC-CF35-4BE6-B228-2864EFE2A19F}.Release|x64.Build.0 = Release|x64
 		{502F2AFC-CF35-4BE6-B228-2864EFE2A19F}.Release|x86.ActiveCfg = Release|Win32
 		{502F2AFC-CF35-4BE6-B228-2864EFE2A19F}.Release|x86.Build.0 = Release|Win32
+		{A7D4DB33-1EC9-4EF9-A96B-512364CBB655}.Debug|x64.ActiveCfg = Debug|x64
+		{A7D4DB33-1EC9-4EF9-A96B-512364CBB655}.Debug|x64.Build.0 = Debug|x64
+		{A7D4DB33-1EC9-4EF9-A96B-512364CBB655}.Debug|x86.ActiveCfg = Debug|Win32
+		{A7D4DB33-1EC9-4EF9-A96B-512364CBB655}.Debug|x86.Build.0 = Debug|Win32
+		{A7D4DB33-1EC9-4EF9-A96B-512364CBB655}.Release|x64.ActiveCfg = Release|x64
+		{A7D4DB33-1EC9-4EF9-A96B-512364CBB655}.Release|x64.Build.0 = Release|x64
+		{A7D4DB33-1EC9-4EF9-A96B-512364CBB655}.Release|x86.ActiveCfg = Release|Win32
+		{A7D4DB33-1EC9-4EF9-A96B-512364CBB655}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
