@@ -29,14 +29,14 @@ public:
 };
 
 // 간선에 가중치가 있는 방향성 그래프
-class EdgeWeightedDiagraph
+class EdgeWeightedDigraph
 {
 public:
 	int num_vertices;
 	int num_edges;
 	vector<vector<DirectedEdge>> adj; // 여기서는 Edge를 기록하는 자료구조
 
-	EdgeWeightedDiagraph(int num_vertices)
+	EdgeWeightedDigraph(int num_vertices)
 	{
 		this->num_vertices = num_vertices;
 		this->num_edges = 0;
@@ -57,7 +57,7 @@ public:
 class DijkstraShortestPaths
 {
 public:
-	DijkstraShortestPaths(EdgeWeightedDiagraph& g, int s)
+	DijkstraShortestPaths(EdgeWeightedDigraph& g, int s)
 		:
 		prev(g.num_vertices, -1),
 		dist(g.num_vertices, numeric_limits<double>::infinity()), // 일단 전부 무한대 거리로 초기화
@@ -82,7 +82,7 @@ public:
 	// 정답을 한 번에 찾는 방식이 아니라 반복(iteration)하면서 
 	// 제약 조건을 조금씩 완화시켜간다는 표현입니다.
 
-	void Relax(EdgeWeightedDiagraph& g, int v)
+	void Relax(EdgeWeightedDigraph& g, int v)
 	{
 		cout << v << endl;
 
@@ -154,7 +154,7 @@ int main()
 		{4, 2, 6.0},
 		};
 
-		EdgeWeightedDiagraph g(5);
+		EdgeWeightedDigraph g(5);
 
 		for (auto e : edges)
 			g.AddEdge(e);
