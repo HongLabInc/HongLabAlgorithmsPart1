@@ -75,7 +75,7 @@ public:
 			Relax(g, pq.DelMin());
 		}
 
-		PrintPaths(g.adj); // 최단 경로 출력
+		PrintPaths(); // 최단 경로 출력
 	}
 
 	// 여기서 Relax는 점점 긴장을 풀어간다는 의미입니다.
@@ -125,7 +125,7 @@ public:
 		cout << endl;
 	}
 
-	void PrintPaths(vector<vector<DirectedEdge>>& adj)
+	void PrintPaths()
 	{
 		// TODO: prev 이용
 	}

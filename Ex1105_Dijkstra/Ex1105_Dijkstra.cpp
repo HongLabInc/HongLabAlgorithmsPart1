@@ -81,7 +81,7 @@ public:
 			Relax(g, v);
 		}
 
-		PrintPaths(g.adj); // 최단 경로 출력
+		PrintPaths(); // 최단 경로 출력
 	}
 
 	// 여기서 Relax는 점점 긴장을 풀어간다는 의미입니다.
@@ -109,26 +109,9 @@ public:
 		cout << endl;
 	}
 
-	void PrintPaths(vector<vector<DirectedEdge>>& adj)
+	void PrintPaths()
 	{
-		for (int i = 0; i < adj.size(); i++)
-		{
-			deque<int> path;
-			path.push_front(i);
-			int v = prev[i];
-			while (v != -1)
-			{
-				path.push_front(v);
-				v = prev[v];
-			}
-
-			for (auto v : path) {
-				cout << v;
-				if (v != path.back())
-					cout << " -> ";
-			}
-			cout << endl;
-		}
+		// TODO: prev 이용
 	}
 
 private:

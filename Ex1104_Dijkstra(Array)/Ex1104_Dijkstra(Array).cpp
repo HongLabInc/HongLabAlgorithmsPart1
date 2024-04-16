@@ -81,7 +81,7 @@ public:
 			Relax(g, v);
 		}
 
-		PrintPaths(g.adj); // 최단 경로 출력
+		PrintPaths(); // 최단 경로 출력
 	}
 
 	int FindMinVertex()
@@ -119,7 +119,7 @@ public:
 		cout << endl;
 	}
 
-	void PrintPaths(vector<vector<DirectedEdge>>& adj)
+	void PrintPaths()
 	{
 		// TODO: prev 이용
 	}
