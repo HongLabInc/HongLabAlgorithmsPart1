@@ -140,7 +140,7 @@ int main()
 				n->value += 1;
 			}
 			else
-				map.Insert({ dist(g), 1 }); // {생일, 이 날이 생일인 사람의 숫자}
+				map.Insert({ birthday, 1 }); // {생일, 이 날이 생일인 사람의 숫자}
 		}
 
 		map.Print();
@@ -168,7 +168,7 @@ int main()
 				n->value += 1;
 			}
 			else
-				map.Insert({ dist(g), 1 }); // {생일, 이 날이 생일인 사람의 숫자}
+				map.Insert({ birthday, 1 }); // {생일, 이 날이 생일인 사람의 숫자}
 		}
 
 		if (samebirthday_count > 0)
