@@ -58,10 +58,22 @@ int BottomUpCutRod(const vector<int>& prices, int length)
 	return table[length];
 }
 
+// 어떻게 자르는지까지 출력하는 버전 (실행 예시 참고)
+int ExtendedBottomUpCutRod(const vector<int>& prices, int length)
+{
+	vector<int> table(length + 1, -1); // 가격은 음수가 될 수 없으니까 디버깅 편의를 위해 -1로 초기화
+	table[0] = 0; // length* prices[0];
+
+	// TODO:
+
+	return table[length];
+}
+
 int main()
 {
 	// Length:                  0  1  2  3  4   5   6   7   8   9  10
 	vector<int> price_table = { 0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30 };
+	//vector<int> price_table = { 0, 3, 5, 8, 9, 10, 17, 17, 20, 24, 30 };
 
 	// 주의: price_table은 문제에서 주어진 조건입니다. 메모가 아닙니다.
 
@@ -80,6 +92,13 @@ int main()
 	cout << "BottomUpTabulation" << endl;
 	cout << "Optimal revenue for length " << 10 << ": " << BottomUpCutRod(price_table, 10) << endl;
 	cout << endl;
+
+	for (int length = 0; length < price_table.size(); length++)
+	{
+		cout << "Length: " << length << endl;
+		int revenue = ExtendedBottomUpCutRod(price_table, length);
+		cout << "Optimal revenue: " << revenue << endl;
+	}
 
 	return 0;
 }
