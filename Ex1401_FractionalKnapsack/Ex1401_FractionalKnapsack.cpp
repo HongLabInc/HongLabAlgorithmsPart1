@@ -10,15 +10,13 @@ struct Item
 	double weight;
 };
 
-void Print(Item i)
-{
-	cout << "(" << i.value / i.weight << ", " << i.value << ", " << i.weight << ") ";
-}
-
 void Print(vector<Item>& items)
 {
 	for (auto i : items)
-		Print(i);
+	{
+		// (가성비 = value/weight = ratio, value, weight)
+		cout << "(" << i.value / i.weight << ", " << i.value << ", " << i.weight << ") ";
+	}
 	cout << endl;
 }
 
