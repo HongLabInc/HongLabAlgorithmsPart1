@@ -52,14 +52,14 @@ Node* MakeNode(int data)
 int main()
 {
 	// 이진 트리 만들기
-	Node* root = MakeNode(20);
-	root->left = MakeNode(8);
+	Node* root = MakeNode(1);
+	root->left = MakeNode(2);
 	root->left->left = MakeNode(4);
-	root->left->right = MakeNode(12);
-	root->left->right->left = MakeNode(10);
-	root->left->right->right = MakeNode(14);
-	root->right = MakeNode(22);
-	root->right->right = MakeNode(25);
+	root->left->right = MakeNode(5);
+	root->left->right->left = MakeNode(7);
+	root->left->right->right = MakeNode(8);
+	root->right = MakeNode(3);
+	root->right->right = MakeNode(6);
 
 	cout << RecurLIS(root) << endl;
 	cout << MemoLIS(root) << endl;
