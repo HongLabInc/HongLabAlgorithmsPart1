@@ -67,7 +67,7 @@ public:
 
 		// deque<Vertex*> revpost = TODO; // 아래 for문 편의상 stack대신 deque 사용
 
-		cout << "Topological sorting: ";
+		cout << "Reverse Post-order: ";
 		//for (auto* v : revpost)
 		//	cout << v->value << " ";
 		//cout << endl;
