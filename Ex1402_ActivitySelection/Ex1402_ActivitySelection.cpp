@@ -17,6 +17,12 @@ bool Compare(struct Activity a, struct Activity b)
 
 void Print(vector<Activity>& activities)
 {
+	if (activities.empty())
+	{
+		cout << "Empty." << endl;
+		return;
+	}
+
 	vector<int> temp(activities.size() * 2);
 	memcpy(&temp[0], &activities[0], sizeof(int) * temp.size());
 	int min_time = *std::min_element(temp.begin(), temp.end());
