@@ -77,8 +77,8 @@ public:
 
 	stack<Vertex*> TopologicalSort()
 	{
-		pre = queue<Vertex*>();
-		post = queue<Vertex*>();
+		pre = queue<Vertex*>(); // 비교 용도
+		post = queue<Vertex*>(); // 비교 용도
 		revPost = stack<Vertex*>();
 
 		// TODO: 

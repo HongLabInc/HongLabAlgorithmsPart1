@@ -40,18 +40,18 @@ public:
 		vertices[w]->in_neighbors.push_back(vertices[v]);
 	}
 
-	deque<Vertex*> TopologicalSort()
+	deque<Vertex*> ReversePostorderDFS()
 	{
-		revPost = deque<Vertex*>();
+		revpost = deque<Vertex*>();
 
 		for (auto* v : this->vertices)
 			v->visited = false;
 
 		for (auto* v : this->vertices)
 			if (!v->visited)
-				TopologicalSortHelper(v);
+				ReversePostorderDFS(v);
 
-		return revPost;
+		return revpost;
 	}
 
 	void Transpose()
@@ -92,11 +92,12 @@ public:
 
 private:
 	vector<Vertex*> vertices;
-	deque<Vertex*> revPost;
+	deque<Vertex*> revpost;
 	vector<int> id;
 	int count = 0;
 
-	void TopologicalSortHelper(Vertex* v)
+	// 	void TopologicalSortHelper(Vertex* v)
+	void ReversePostorderDFS(Vertex* v)
 	{
 		// TODO:
 	}
@@ -106,7 +107,7 @@ private:
 		// TODO:
 	}
 
-	// TopologicalSortHelper()도 깊이우선탐색이라서 DSF()와 합칠 수 있으나
+	// ReversePostorderDFS()도 깊이우선탐색이라서 DSF()와 합칠 수 있으나
 	// 여기서는 디버깅 편의를 위해 분리하였습니다.
 };
 
