@@ -47,12 +47,8 @@ vector<Activity> GreedyActivitySelection(vector<Activity>& activities)
 	Print(activities);
 
 	vector<Activity> schedule;
-	int current_time = activities[0].start;
 
-	for (Activity act : activities)
-	{
-		// TODO:
-	}
+	// TODO:
 
 	return schedule;
 }
