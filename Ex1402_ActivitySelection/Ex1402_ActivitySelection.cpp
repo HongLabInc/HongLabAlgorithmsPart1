@@ -60,7 +60,7 @@ vector<Activity> GreedyActivitySelection(vector<Activity>& activities)
 int main()
 {
 	vector<Activity> activities =
-	{ {6, 9}, {3, 8}, {9, 11}, {5, 12}, {8, 10}, {1, 4}, {2, 5}, {6, 13}, {3, 6}, {5, 7}, {8, 14}, {13, 15} };
+	{ {5, 7}, {2, 5}, {6, 13}, {1, 8}, { 6, 9 }, {3, 8}, {9, 11}, {5, 12}, {8, 10}, {1, 4}, {3, 6}, {8, 14}, {13, 15} };
 
 	Print(activities);
 
