@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ex1403_HuffmanEncoding.cpp">
+    <ClCompile Include="Ex1403_HuffmanCoding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

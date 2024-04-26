@@ -34,7 +34,7 @@ void PrintCodes(Node* root, string str)
 	PrintCodes(root->right, str + "1");
 }
 
-void HuffmanEncoding(vector<char> data, vector<int> freq)
+void HuffmanCoding(vector<char> data, vector<int> freq)
 {
 	// freq가 작을 수록 우선순위가 높은 힙
 	// struct Compare에서 우선순위 비교
@@ -63,7 +63,7 @@ int main()
 	vector<char> data = { 'a', 'b', 'c', 'd', 'e', 'f' };
 	vector<int> freq = { 45, 13, 12, 16, 9, 5 };
 
-	HuffmanEncoding(data, freq);
+	HuffmanCoding(data, freq);
 
 	return 0;
 }

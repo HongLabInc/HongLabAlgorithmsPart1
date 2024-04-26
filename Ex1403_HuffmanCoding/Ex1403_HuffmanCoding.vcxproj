@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7063bfd8-ebd5-4b43-ac9d-ff6231fe70cd}</ProjectGuid>
-    <RootNamespace>Ex1403HuffmanEncoding</RootNamespace>
+    <ProjectGuid>{00666731-70e7-45c7-aeb6-02fb102179f2}</ProjectGuid>
+    <RootNamespace>Ex1403HuffmanCoding</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Ex1403_HuffmanEncoding.cpp" />
+    <ClCompile Include="Ex1403_HuffmanCoding.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
