@@ -29,7 +29,7 @@ public:
 		return Find(p) == Find(q);
 	}
 
-	/* Quick-Find: Union()에서 미리 정리하기 때문에 Find()는 빠름 */
+	/* Quick-Find 방식: Union()에서 미리 정리하기 때문에 Find()는 빠름 */
 	int Find(int p)
 	{
 		return group[p];
@@ -50,7 +50,7 @@ public:
 		num_groups--;
 	}
 
-	/* Quick-Find: Union()은 빠르고 Find()할 때 정리 */
+	/* Quick-Union 방식: Union()은 빠르고 Find()할 때 정리 */
 	/*
 	int Find(int p)
 	{
