@@ -4,10 +4,10 @@ using namespace std;
 
 int main()
 {
-	UnionFind uf(3);
+	UnionFind uf(4);
 	vector<pair<int, int>> tests =
 	{
-		{0, 1}, {1, 2}, {0, 2}
+		{0, 1}, {1, 2}, {2, 3}, {3, 0}
 	};
 
 	uf.Print();
@@ -25,6 +25,4 @@ int main()
 
 		uf.Print();
 	}
-
-	// Quick-Find와 Quick-Union의 차이: Find()를 빠르게 할지 Union()을 빠르게 할지
 }
