@@ -16,7 +16,7 @@ int main()
 	{
 		int u = t.first;
 		int v = t.second;
-		bool connected = uf.Connected(u, v);
+		bool connected = uf.Connected(u, v);  // uf.Find(p) == uf.Find(q);
 
 		cout << u << " " << v << " " << std::boolalpha << connected << endl;
 		cout << "Union " << u << " " << v << endl;
