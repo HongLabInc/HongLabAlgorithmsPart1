@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d747a54d-32d3-4a17-b686-72d9c4a6943c}</ProjectGuid>
-    <RootNamespace>Ex1104DijkstraArray</RootNamespace>
+    <ProjectGuid>{27c6a25e-81e6-4512-9275-8ef9db82b6f3}</ProjectGuid>
+    <RootNamespace>Ex1104DijkstraLinearSearch</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Ex1104_Dijkstra(Array).cpp" />
+    <ClCompile Include="Ex1104_Dijkstra(LinearSearch).cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
