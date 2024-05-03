@@ -96,16 +96,16 @@ private:
 
 int main()
 {
-
 	Graph g(6);
 
-	g.AddDiEdge(0, 2);
-	g.AddDiEdge(2, 1);
-	g.AddDiEdge(2, 3);
-	g.AddDiEdge(3, 4);
-	g.AddDiEdge(1, 5);
-	g.AddDiEdge(2, 4);
-	g.AddBiEdge(3, 5); // 주의: 양방향 간선
+	// 주의: 양방향 간선 (undirected graph)
+	g.AddBiEdge(0, 2);
+	g.AddBiEdge(2, 1);
+	g.AddBiEdge(2, 3);
+	g.AddBiEdge(3, 4);
+	g.AddBiEdge(1, 5);
+	g.AddBiEdge(2, 4);
+	g.AddBiEdge(3, 5);
 
 	g.DepthFirstPath(0, 4);
 
