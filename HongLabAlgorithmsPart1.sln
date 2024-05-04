@@ -159,6 +159,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter18", "Chapter18", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex1801_LongestPath", "Ex1801_LongestPath\Ex1801_LongestPath.vcxproj", "{67972897-1ED3-4782-B45F-66C4541694CB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ex1802_TravellingSalesmanProblem", "Ex1802_TravellingSalesmanProblem\Ex1802_TravellingSalesmanProblem.vcxproj", "{BACF7929-2559-4C4A-BF72-B8BA810E1BEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -647,6 +649,14 @@ Global
 		{67972897-1ED3-4782-B45F-66C4541694CB}.Release|x64.Build.0 = Release|x64
 		{67972897-1ED3-4782-B45F-66C4541694CB}.Release|x86.ActiveCfg = Release|Win32
 		{67972897-1ED3-4782-B45F-66C4541694CB}.Release|x86.Build.0 = Release|Win32
+		{BACF7929-2559-4C4A-BF72-B8BA810E1BEA}.Debug|x64.ActiveCfg = Debug|x64
+		{BACF7929-2559-4C4A-BF72-B8BA810E1BEA}.Debug|x64.Build.0 = Debug|x64
+		{BACF7929-2559-4C4A-BF72-B8BA810E1BEA}.Debug|x86.ActiveCfg = Debug|Win32
+		{BACF7929-2559-4C4A-BF72-B8BA810E1BEA}.Debug|x86.Build.0 = Debug|Win32
+		{BACF7929-2559-4C4A-BF72-B8BA810E1BEA}.Release|x64.ActiveCfg = Release|x64
+		{BACF7929-2559-4C4A-BF72-B8BA810E1BEA}.Release|x64.Build.0 = Release|x64
+		{BACF7929-2559-4C4A-BF72-B8BA810E1BEA}.Release|x86.ActiveCfg = Release|Win32
+		{BACF7929-2559-4C4A-BF72-B8BA810E1BEA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -712,6 +722,7 @@ Global
 		{BD1F71C8-3D4E-40EB-BFF0-030721FBC47B} = {2C16A415-0349-4D79-91E9-A43D469DDE6F}
 		{689F60E1-6627-48CC-A5CC-641B299EE6DB} = {2C16A415-0349-4D79-91E9-A43D469DDE6F}
 		{67972897-1ED3-4782-B45F-66C4541694CB} = {FEAB4C8E-BCF1-4C94-B82D-9A07AA5723D4}
+		{BACF7929-2559-4C4A-BF72-B8BA810E1BEA} = {FEAB4C8E-BCF1-4C94-B82D-9A07AA5723D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D2E7EB7-52CB-4473-8F6D-2890ECE1C82F}
