@@ -11,8 +11,12 @@ struct Vertex
 {
 	Vertex(int v)
 	{
-		value = v; // ID (디버깅용)
+		value = v;
 	}
+
+	// 여기서는 value가 그래프에 저장된 인덱스와 동일합니다.
+	// 디버깅하기에 편합니다.
+	// 실무에서는 인덱스 외에 다른 정보도 저장될 수 있습니다.
 
 	int value = -1;
 

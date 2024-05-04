@@ -24,7 +24,7 @@ struct Vertex
 class Graph
 {
 public:
-	// 방문 순서 확인용
+	// 방문 순서 확인용 (pre/post와 revPost 비교해보세요)
 	queue<Vertex*> pre;
 	queue<Vertex*> post;
 	stack<Vertex*> revPost;
@@ -77,8 +77,8 @@ public:
 
 	stack<Vertex*> TopologicalSort()
 	{
-		pre = queue<Vertex*>();
-		post = queue<Vertex*>();
+		pre = queue<Vertex*>(); // 비교 용도
+		post = queue<Vertex*>(); // 비교 용도
 		revPost = stack<Vertex*>();
 
 		// TODO: 
