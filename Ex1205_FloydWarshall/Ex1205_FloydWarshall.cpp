@@ -53,7 +53,7 @@ void RepeatingBellmanFord(const vector<vector<double>>& graph)
 	// 힌트: 벨먼-포드를 여러 번 반복하는 방식
 	cout << "Repeating Bellman-Ford" << endl;
 
-	vector<vector<double>> dist = graph; // 복사
+	vector<vector<double>> dist = graph; // 복사 후 업데이트 하는 방식
 
 	int V = graph.size();
 
@@ -78,6 +78,7 @@ void RepeatingBellmanFord(const vector<vector<double>>& graph)
 		{
 			// CLRS 교재에서는 Floyd-Warshall을 구현할 때 사본을 만들어서 업데이트 방식이라서
 			// 여기서는 이해를 돕기 위해 Bellman-Ford도 비슷하게 구조를 바꿔봤습니다.
+			// 참고로, 위키피디아에서는 사본 없이 바로 덮어쓰는 in-place 방식입니다.
 			auto dist_k = dist;
 			auto prev_k = prev;
 
@@ -111,7 +112,7 @@ void FloydWarshall(const vector<vector<double>>& graph)
 {
 	cout << "FloydWarshall" << endl;
 
-	vector<vector<double>> dist = graph; // 복사
+	vector<vector<double>> dist = graph; // 복사 후 업데이트 하는 방식
 
 	int V = graph.size();
 
