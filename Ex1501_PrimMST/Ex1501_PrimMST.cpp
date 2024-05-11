@@ -26,7 +26,7 @@ public:
 	void AddBiEdge(DirectedEdge e) // 양방향(무방향)
 	{
 		adj[e.u].push_back(e);
-		adj[e.v].push_back(e);
+		adj[e.v].push_back({ e.v, e.u, e.weight });
 	}
 
 	vector<DirectedEdge>& Adj(int v)
