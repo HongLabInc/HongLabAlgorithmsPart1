@@ -86,7 +86,7 @@ private:
 
 int main()
 {
-	Graph g(6);
+	Graph g(4);
 
 	// 주의: 양방향 간선 (undirected graph)
 	g.AddBiEdge(0, 1, 20);
