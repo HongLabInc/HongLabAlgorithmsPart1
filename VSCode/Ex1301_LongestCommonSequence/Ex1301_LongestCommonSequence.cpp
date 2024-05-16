@@ -159,9 +159,17 @@ int main()
 	// CGTCGA
 	//6
 
-	cout << RecurLCS(X, Y, 0, 0) << endl;
+	cout << "RecurLCS()" << endl;
+	cout << RecurLCS(X, Y, int(X.size()), int(Y.size())) << endl;
+	cout << endl;
+
+	cout << "RecurLengthLCS()" << endl;
 	cout << RecurLengthLCS(X, Y, int(X.size()), int(Y.size())) << endl;
+	cout << endl;
+
+	cout << "BottomUpLCS()" << endl;
 	cout << BottomUpLCS(X, Y, int(X.size()), int(Y.size())) << endl;
+	cout << endl;
 
 	return 0;
 }
