@@ -44,6 +44,8 @@ public:
 		pq[size] = i;
 		keys[i] = key;
 		Swim(size); // pq[size]를 자기 위치로 올려보냄
+
+		// capacity가 부족하면 자료구조에서 했던것처럼 키워줄 수 있습니다.
 	}
 
 	int MinIndex()
