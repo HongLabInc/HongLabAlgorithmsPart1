@@ -121,8 +121,8 @@ public:
 	Node* RotateRight(Node* h)
 	{
 		Node* x = h->left; // 회전 후에 부모 자리로 올라갈 노드
-		// h->right = TODO
-		// x->left = TODO
+		// h->left = TODO
+		// x->right = TODO
 		x->color = h->color;
 		h->color = Color::kRed; // 일단 레드로 설정 후 나중에 수정
 		x->size = h->size;
