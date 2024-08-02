@@ -22,7 +22,7 @@ void Print(vector<int>& arr)
 // 결과를 반환하는 구조 (In-place가 아님)
 vector<int> CountingSort(const vector<int>& arr, int k)
 {
-	vector<int> count(k + 1, 0); // k + 1개를 0으로 초기화
+	vector<int> count(k + 1, 0); // 0이상 k이하니까 k + 1개를 0으로 초기화
 
 	// TODO:
 

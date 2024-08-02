@@ -31,7 +31,7 @@ void CountingSort(vector<int>& arr, int k, int exp)
 
 void RadixSort(vector<int>& arr)
 {
-	int k = 10; // 여기서는 10으로 고정
+	int k = 9; // 0 이상 9 이하
 	int m = *max_element(arr.begin(), arr.end());
 
 	//for (TODO)
