@@ -27,7 +27,7 @@ void PrintCodes(Node* root, string str)
 	if (!root)
 		return;
 
-	if (!root->left && !root->right) // left node이면 출력
+	if (!root->left && !root->right) // leaf node이면 출력
 		cout << root->data << ": " << str << "\n";
 
 	PrintCodes(root->left, str + "0");
