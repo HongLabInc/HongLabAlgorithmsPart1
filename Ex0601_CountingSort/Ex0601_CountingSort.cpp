@@ -52,8 +52,9 @@ int main()
 
 	Print(arr);
 
-	int k = *std::max_element(arr.begin(), arr.end()); // 가장 큰 값 찾기
-	// 가장 작은 값은 0이라고 고정
+	int k = *std::max_element(arr.begin(), arr.end());
+	// 아래 CountingSort()에서 사용할 가장 작은 인덱스(arr에서 가장 작은 값)은 0
+	// 가장 큰 인덱스(arr에서 가장 큰 값)이 k
 
 	vector<int> result = CountingSort(arr, k);
 
