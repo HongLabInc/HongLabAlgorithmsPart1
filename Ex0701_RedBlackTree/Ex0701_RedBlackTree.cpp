@@ -234,6 +234,8 @@ public:
 		if (!IsRed(root->left) && !IsRed(root->right))
 			root->color = Color::kRed;
 
+		// Print2D(); // 필요하면 여기서도 출력해보세요.
+
 		root = DeleteMin(root);
 
 		// 루트는 항상 블랙
