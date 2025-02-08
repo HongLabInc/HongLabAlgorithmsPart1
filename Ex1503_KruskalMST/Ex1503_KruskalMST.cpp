@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <vector>
 #include <list>
+#include <algorithm>
 
 struct Edge
 {
